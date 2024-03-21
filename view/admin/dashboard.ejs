@@ -1,0 +1,54 @@
+<%- include('../user/header') %>
+<link rel="stylesheet" href="/style2.css">
+ <header>
+        <h1>Dashboard</h1>
+    </header>
+    <nav>
+        <form action="/admin/search" method="get">
+            <input type="text" name="search" placeholder="Search by name">
+            <button>Search</button>
+        </form>
+        <a href="/admin/new-user"><button type="button" class="btn btn-info">Add New User</button></a>
+        <a href="/admin/home"><button type="button" class="btn btn-info">Back to Home</button></a>
+        
+        
+        
+    </nav>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(users.length > 0) {
+                    for(let i=0; i < users.length; i++) { %>
+                        <tr>
+                            <td><%= users[i].fname + ' ' + users[i].sname %></td>
+                            <td><%= users[i].username %></td>
+                            <td><%= users[i].email %></td>
+                            <td>
+                                <button class="edit-btn btn-info"><a href="/admin/edit-user?id=<%= users[i]._id %>" id="bb">Edit User</a></button>
+                                <button class="delete-btn"><a href="/admin/delete-user?id=<%= users[i]._id %>" id="bb">Delete User</a></button>
+                            </td>
+                        </tr>
+                <%  } 
+                    } else { %>
+                        <tr>
+                            <td colspan="4">Users not found</td>
+                        </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Dashboard. All rights reserved.</p>
+    </footer>
+
+<%- include('../user/footer') %>

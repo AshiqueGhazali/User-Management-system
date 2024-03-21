@@ -1,0 +1,68 @@
+<%-include('header') -%>
+<link rel="stylesheet" href="/style.css">
+
+
+
+<section class="text-center">
+    <div class="p-5 bg-image"></div>
+    
+  
+    <div class="card mx-4 mx-md-5 shadow-5-strong login_box" >
+      <div class="card-body py-5 px-md-5">
+  
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="fw-bold mb-5">Log in</h2>
+            
+            <form action="/login" method="post">
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="form3Example1" class="form_input" name="userName" />
+                    <label class="form_label" for="form3Example1">Username</label>
+                  </div>
+                </div>
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <input type="password" id="form3Example2" class="form_input" name="password" />
+                    <label class="form_label" for="form3Example2">Password</label>
+                  </div>
+                </div>
+              </div>
+  
+              <button type="submit" value="Login" class="btn btn-dark btn-block mb-4">Login</button>
+              
+              <!-- forgot or create -->
+              <div class="row">
+                <div class="col-md-6 mb-2 text-left">
+                  <a href="#" class="login_forgot">Forgot Password?</a>
+                </div>
+                <div class="col-md-6 mb-2">
+                  <div class="login_register text-left">Don't have an account?<a href="/register">Register</a>
+                  </div>
+                </div>
+              </div>
+               <!-- forgot or create -->
+  
+              <div class="text-center">
+                <p>or sign up with:</p>
+              </div>
+              <button type="submit" class="btn btn-info btn-block mb-3"><i class="fa-brands fa-google"></i> &nbsp;Google</button>
+              <button type="submit" class="btn btn-info btn-block mb-4"><i class="fa-brands fa-facebook"></i> &nbsp;facebook</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <% if(typeof message !== "undefined"){
+    %>
+    <p><%=message%></p> 
+    <%
+  }
+  %>
+  
+ 
+
+  <%-include('footer') -%>
